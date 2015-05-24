@@ -157,8 +157,8 @@
 		status: true,
 		name: "YalsBot",
 		loggedInID: null,
-		scriptLink: "https://raw.githubusercontent.com/yalstk/yalstkbot/master/botYals.js",
-		chatLink: "https://raw.githubusercontent.com/yalstk/yalstkbot/master/chat.json",
+		scriptLink: "https://rawgit.com/yalstk/yalstkbot/master/botYals.js",
+		chatLink: "https://rawgit.com/yalstk/yalstkbot/master/chat.json",
 		cmdLink: "http://git.io/245Ppg",
 		chat: null,
 		loadChat: loadChat,
@@ -166,7 +166,7 @@
 		retrieveFromStorage: retrieveFromStorage,
 		settings: {
 			botName: "BasicBot",
-			chatLink: "https://raw.githubusercontent.com/yalstk/yalstkbot/master/chat.json",
+			chatLink: "https://rawgit.com/yalstk/yalstkbot/master/chat.json",
 			startupCap: 1, // 1-200
 			startupVolume: 0, // 0-100
 			startupEmoji: false, // true or false

@@ -74,6 +74,6 @@
 	}));
 
 	// Executa o script
-	$.getScript("https://raw.githubusercontent.com/yalstk/yalstkbot/master/botYals.js", extend);
+	$.getScript("https://rawgit.com/yalstk/yalstkbot/master/botYals.js", extend);
 
 }).call(this);
