@@ -1,3 +1,4 @@
+console.log('test1');
 (function () {
 
 	// Função principal do bot
