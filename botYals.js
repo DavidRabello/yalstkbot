@@ -45,12 +45,16 @@
 	};
 
 	var loadChat = function (cb) {
-		$.get(basicBot.chatLink, function (json) {
-			if (json !== null && typeof json !== "undefined") {
-				if (typeof json === "string") json = JSON.parse(json);
-				basicBot.chat = json;
-			}
-		});
+        if (!cb)
+        	cb = function () {};
+        $.get(basicBot.chatLink, function (json) {
+            if (json !== null && typeof json !== "undefined") {
+                if (typeof json === "string")
+                	json = JSON.parse(json);
+                basicBot.chat = json;
+                cb();
+            }
+        });
 	};
 
 	var retrieveSettings = function () {
@@ -166,7 +170,6 @@
 		retrieveFromStorage: retrieveFromStorage,
 		settings: {
 			botName: "BasicBot",
-			chatLink: "https://rawgit.com/yalstk/yalstkbot/master/chat.json",
 			startupCap: 1, // 1-200
 			startupVolume: 0, // 0-100
 			startupEmoji: false, // true or false
