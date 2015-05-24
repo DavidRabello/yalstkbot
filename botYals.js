@@ -3096,21 +3096,7 @@
 						return void(0);
 					}
 				}
-			},
-			testeCommand: {
-	            command: 'teste',
-	            rank: 'user',
-	            type: 'exact',
-	            functionality: function (chat, cmd) {
-	                if (this.type === 'exact' && chat.message.length !== cmd.length)
-	                  	return void(0);
-	              	if (basicBot.commands.executable(this.rank, chat)) {
-	                	return API.sendChat(basicBot.chat.botteste);
-	                } else {
-	                    return void(0); 
-	                }
-	            }
-	        }
+			}
 		}
 	};
 

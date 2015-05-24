@@ -201,6 +201,5 @@
     "youtube": "\/me [%%NAME%%] Inscreva-se no nosso canal: %%LINK%%",
     "songstatistics": "\/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W\/%%GRABS%%G\/%%MEHS%%M.",
     "downloadytlink": "@%%NAME%% você pode baixar este v\u00eddeo por aqui: %%LINK%%",
-    "downloadsclink": "@%%NAME%% você pode baixar esta m\u00fasica por aqui: %%LINK%%",
-    "botteste": "Eu to funcionando, ao menos isso :D"
+    "downloadsclink": "@%%NAME%% você pode baixar esta m\u00fasica por aqui: %%LINK%%"
 }
