@@ -163,16 +163,16 @@
 		loggedInID: null,
 		scriptLink: "https://rawgit.com/yalstk/yalstkbot/master/botYals.js",
 		chatLink: "https://rawgit.com/yalstk/yalstkbot/master/chat.json",
-		cmdLink: "http://git.io/245Ppg",
+		cmdLink: "http://git.io/vTFKE",
 		chat: null,
 		loadChat: loadChat,
 		retrieveSettings: retrieveSettings,
 		retrieveFromStorage: retrieveFromStorage,
 		settings: {
-			botName: "BasicBot",
+			botName: "YalsBot",
 			startupCap: 1, // 1-200
 			startupVolume: 0, // 0-100
-			startupEmoji: false, // true or false
+			startupEmoji: false, // true ou false
 			maximumAfk: 120,
 			afkRemoval: true,
 			maximumDc: 60,
@@ -2132,7 +2132,6 @@
 					}
 				}
 			},
-
 			linkCommand: {
 				command: 'link',
 				rank: 'user',
@@ -3080,7 +3079,19 @@
 					if (this.type === 'exact' && chat.message.length !== cmd.length)
 						return void(0);
 					if (basicBot.commands.executable(this.rank, chat)) {
-						API.sendChat(subChat(basicBot.chat.downloadlink, {name: chat.un, link: API.getMedia().cid}));
+						var midia = API.getMedia(),
+							from = chat.un;
+						switch (media.format) {
+							case 1:
+								var linkToSong = "https://www.ssyoutube.com/watch?v=" + media.cid;
+								return API.sendChat(subChat(basicBot.chat.downloadytlink, {name: from, link: linkToSong}));
+							break;
+							case 2:
+								SC.get('/tracks/' + media.cid, function (sound) {
+									return API.sendChat(subChat(basicBot.chat.downloadsclink, {name: from, link: sound.permalink_url}));
+								});
+							break;
+						}
 					} else {
 						return void(0);
 					}
@@ -3093,8 +3104,8 @@
 	            functionality: function (chat, cmd) {
 	                if (this.type === 'exact' && chat.message.length !== cmd.length)
 	                  	return void(0);
-	              	if (bot.commands.executable(this.rank, chat)) {
-	                	return API.sendChat(subChat(basicBot.chat.botteste));
+	              	if (basicBot.commands.executable(this.rank, chat)) {
+	                	return API.sendChat(subChat(basicBot.chat.botteste, {name:chat.un}));
 	                } else {
 	                    return void(0); 
 	                }
