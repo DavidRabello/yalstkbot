@@ -1,9 +1,8 @@
-console.log('test1');
 (function () {
-
+	console.log('entrou aqui');
 	// Função principal do bot
 	function extend() {
-		
+		console.log('aqui também');
       	// Caso essa propriedade não seja iniciada, ela tenta após 1 segundo
 		if (!window.bot)
 			return setTimeout(extend, 1 * 1000);
@@ -74,6 +73,7 @@ console.log('test1');
 		}
 	}));
 
+	console.log('isso é um milagre');
 	// Executa o script
 	$.getScript("https://rawgit.com/yalstk/yalstkbot/master/botYals.js", extend);
 
