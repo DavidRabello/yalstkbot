@@ -3079,7 +3079,7 @@
 					if (this.type === 'exact' && chat.message.length !== cmd.length)
 						return void(0);
 					if (basicBot.commands.executable(this.rank, chat)) {
-						var midia = API.getMedia(),
+						var media = API.getMedia(),
 							from = chat.un;
 						switch (media.format) {
 							case 1:
@@ -3105,7 +3105,7 @@
 	                if (this.type === 'exact' && chat.message.length !== cmd.length)
 	                  	return void(0);
 	              	if (basicBot.commands.executable(this.rank, chat)) {
-	                	return API.sendChat(subChat(basicBot.chat.botteste, {name:chat.un}));
+	                	return API.sendChat(basicBot.chat.botteste);
 	                } else {
 	                    return void(0); 
 	                }

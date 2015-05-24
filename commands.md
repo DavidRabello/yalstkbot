@@ -1,7 +1,4 @@
-# YalsTK Bot
-Eu sou um Bot para o PlugDJ
-
-# Commands:
+# Comandos:
 
 Parametros com X são númericos
 Parametros entre (.) são opcionais
