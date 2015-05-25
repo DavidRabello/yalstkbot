@@ -177,7 +177,6 @@
     "mutedtime": "\/me [@%%NAME%%] @%%USERNAME%% mutado por %%TIME%% minuto(s).",
     "unmuted": "\/me [@%%NAME%%] @%%USERNAME%% desmutado.",
     "muterank": "\/me [@%%NAME%%] Voc\u00ea n\u00e3o pode mutar usu\u00e1rios do mesmo n\u00edvel ou superior.",
-    "oplist": "\/me Lista OP: %%LINK%%",
     "pong": "\/me Pong!",
     "reload": "\/me Reiniciando...",
     "removenotinwl": "\/me [@%%NAME%%] Usu\u00e1rio @%%USERNAME%% n\u00e3o est\u00e1 na fila de espera.",
@@ -200,6 +199,9 @@
     "website": "\/me Visite nosso site: %%LINK%%",
     "youtube": "\/me [%%NAME%%] Inscreva-se no nosso canal: %%LINK%%",
     "songstatistics": "\/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W\/%%GRABS%%G\/%%MEHS%%M.",
-    "downloadytlink": "@%%NAME%% você pode baixar este v\u00eddeo por aqui: %%LINK%%",
-    "downloadsclink": "@%%NAME%% você pode baixar esta m\u00fasica por aqui: %%LINK%%"
+    "downloadytlink": "@%%NAME%% voc\u00ea pode baixar este v\u00eddeo por aqui: %%LINK%%",
+    "downloadsclink": "@%%NAME%% voc\u00ea pode baixar esta m\u00fasica por aqui: %%LINK%%",
+    "allahuakbardj": "@%%NAME%% voc\u00ea est\u00e1 seguro e n\u00e3o pode ser explodido",
+    "allahuakbardeubom": "@%%NAME%% voc\u00ea escapou de um terrorista :D",
+    "allahuakbardeuruim": "@%%NAME%% voc\u00ea foi explodido e saiu da lista de DJs :("
 }
