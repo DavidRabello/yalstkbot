@@ -3036,9 +3036,9 @@
 						if (isDj) {
 							return API.sendChat(subChat(basicBot.chat.allahuakbardj, {name: from}));
 						} else if (morreu == 0) {
-							API.moderateRemoveDJ(id);
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeubom, {name: from}));
 						} else if (morreu == 1) {
+							API.moderateRemoveDJ(id);
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeuruim, {name: from}));
 						}
 					} else {
