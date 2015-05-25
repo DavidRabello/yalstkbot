@@ -1,115 +1,106 @@
 # Comandos:
 
-Parametros com X são númericos
 Parametros entre (.) são opcionais
 
-Manager
+Host
 -------
 
 |Comando | Parametro | Descrição |
 |:------:|:---------:|:--------------------------------------:|
-|!afklimit | X | sets the maximum afk time |
-|!botname | (botname) | change the default bot name |
-|!clearchat | |clears the chat |
-|!cycle | | toggle DJ cycle |
-|!cycletimer | X | set the maximum DJ cycle time for when cycleguard is enabled |
-|!locktimer | X | set the maximum time the waitlist can be locked if lockguard is enabled |
-|!logout | | logs out account bot is hosted on |
-|!refresh | | refreshes the browser of whoever runs the bot |
-|!usercmdcd | X | set the cooldown on commands by grey users |
-|!usercommands | | toggle user commands |
-|!voteskip | (X) | when no argument is specified, returns the current voteskip limit, when X is specified, voteskip limit is updated to the new specified limit. |
+|!afklimit | number | Muda o tempo máximo para um AFK ser kickado por inatívidade |
+|!botname | (botname) | Muda o nome padrão do BOT |
+|!clearchat | | Limpa o chat de todos |
+|!cycle |  | Alternar clico do DJ |
+|!cycletimer | number | Define o tempo de ciclo máximo quando o CycleGard está habilitado |
+|!locktimer | number | Define o tempo máximo que a lista de espera pode ser bloqueada se LockGuard está habilitado |
+|!logout |  | Desloga a conta de quem está hosteando o BOT |
+|!refresh |  | Atualiza a página de quem está hosteando o BOT |
+|!usercmdcd | number | Muda o tempo entre comandos dos usuários |
+|!usercommands |  | Alterna os comandos dos usuários |
+|!voteskip | (number) | Quando nenhum argumento for especificado, retorna o limite voteskip atual, quando "number" é especificado, o limite voteskip é atualizado para o novo limite especificado. |
 
-Bouncer+
+Anfitrião+
 --------
 
 |Comando | Parametro | Descrição |
 |:------:|:---------:|:--------------------------------------:|
-|!add | @user | add user to the waitlist |
-|!afkremoval | | toggles the afk check |
-|!autoskip | | skips songs automatically when they're done (use when the circles-bug happens) |
-|!bouncer+ | | disable bouncer+ |
-|~~!deletechat~~ | ~~@user~~ | ~~delete all the chats by a certain user~~ |
-|!lock | | lock the waitlist |
-|!lockdown | | lock down the room: only staff can chat |
-|!maxlength | X | specify the maximum length a song can be when timeguard is enabled |
-|!move | @user (X) | moves user to position X on the waitlist, default is position 1 |
-|!remove | @user | remove user from the waitlist |
-|!roulette | | start a roulette |
-|!songstats | | toggle song statistics |
-|!unlock | | unlock the waitlist |
-|!welcome | | toggle the welcome message on user join |
+|!add | @user | Adiciona o usuário especificado à lista de espera. |
+|!afkremoval | | Alterna a seleção de AFK |
+|!autoskip | | Pula automaticamente a másica quando finalizada (use apenas se o bug entre vídeos ocorrer) |
+|!bouncer+ | | Desativar comandos de CO-Anfitrião |
+|!lock | | Tranca a lista de espera |
+|!lockdown | | Tranca totalmente a sala: somente membros da staff podem falar |
+|!maxlength | number | Especifica o tempo máximo da música quando o timeguard está ativado |
+|!move | @user (number) | Move o usuário para a posição "number" na lista de espera, posição 1 é a padrão. |
+|!remove | @user | Remove o usuário da lista de espera. |
+|!roulette | | Inicia a roleta. |
+|!unlock | | Trava a lista de espera. |
+|!welcome | (message) | Alterna a mensagem de boas vindas ao logar um usuário. |
 
-Bouncer
+CO-Anfitrião
 -------
 
 |Comando | Parametro | Descrição |
 |:------:|:---------:|:--------------------------------------:|
-|!active | (X) | shows how many users chatted in the past X minutes. If no X specified, 60 is set as default |
-|!afkreset | @user | resets the afk time of user |
-|!afktime | @user | shows how long user has been afk |
-|!autodisable | | toggle the autodisable |
-|!ban | @user | bans user for 1 day |
-|!blacklist / !bl | blacklistname | add the song to the specified blacklist |
-|!blinfo | | get information required to blacklist a song |
-|!cycleguard | | toggles the cycleguard |
-|!dclookup / !dc | (@user) | do dclookup for user |
-|!english | @user | ask user to speak english (asked in the language they set plug to) |
-|!eta | (@user) | shows when user will reach the booth |
-|!ping | | pong! |
-|!filter | | toggles the chat filter |
-|!jointime | @user | shows how long the user has been in the room |
-|!kick | (X) | kicks user for X minutes, default is 0.25 minutes (15 seconds) |
-|!kill | | shut down the bot |
-|!lockguard | | toggle the lockguard |
-|!lockskip | (reason) | skip the song and move the dj back up (the position can be set with !lockskippos) |
-|!lockskippos | X | set the position to which lockskip moves the dj |
-|!motd | (X)/(message) | when no argument is specified, returns the Message of the Day, when X is specified, the MotD is given every X songs, when "message" is given, it sets the MotD to message |
-|!mute | @user (X) | mute user, for X minutes if X is specified, otherwise for an undefined period |
-|!reload | | reload the bot |
-|!restricteta | | toggles the restriction on eta: grey users can use it once an hour |
-|!sessionstats | | display stats for the current session |
-|!skip | | skip the current song |
-|!status | | display the bot's status and some settings |
-|!timeguard | | toggle the timeguard |
-|!togglebl | | toggle the blacklist |
-|!togglemotd | | toggle the motd |
-|!togglevoteskip | | toggle the voteskip |
-|!unban | @user | unban user |
-|!unmute | | unmute user |
-|!voteratio | @user | display the vote statistic for a user |
-|!whois | @user | returns plug related information about user |
+|!active | (number) | Mostra quantos usuários conversaram nos últimos X minutos. Se X não for especificado, 60 é posto como padrão. |
+|!afkreset | @user | Reseta o tempo afk do usuário |
+|!afktime | @user | Mostra quanto tempo o usuário esteve ausente |
+|!autodisable | | Toggle the autodisable |
+|!ban | @user | Bane o usuário por 1 dia|
+|!blacklist / !bl | blacklistname | Adiciona a música à lista negra especificada  |
+|!blinfo | | Conseguir informação para adicionar uma musica à blacklist |
+|!cycleguard | | Alterna um cycleguard |
+|!dclookup / !dc | (@user) | Volta o usuário a sua posição antes de desconectar  |
+|!eta | (@user) | Mostra quanto tempo falta para tocar |
+|!ping | | Pong! |
+|!filter | | Alterna o filtro de chat |
+|!jointime | @user | Mostra a quanto tempo o usuário está na sala |
+|!kick | (number) | Expula o usuário por "number" minutos, 0.25 minutos (15 segundos) é o tempo padrão. |
+|!kill | | Desliga o BOT |
+|!lockguard | | Alterna o lockguard |
+|!lockskip | (reason) | Pula a música e joga o DJ para cima (a posição é definada com !lockskippos) |
+|!lockskippos | number | Define a posição para qual lugar se deve mover o dj |
+|!motd | (number)/(message) | Quando não há argumento especificado, retorna a mensagem do dia, quando "number" é especificado, o MotD é dado a cada "number" músicas, quando a "messagem" é dada, ele define o MotD na messagem |
+|!mute | @user (number) | Muta o usuário, por "number" minutos se "number" é especificado, caso contrário para um  período indefinido |
+|!reload | | Recarrega o bot |
+|!restricteta | | Muda a restrição no eta: usuários comuns podem usar uma vez a cada hora |
+|!sessionstats | | Mostra o status da sessão atual |
+|!skip | | Pula a mídia atual |
+|!status | | Mostra as configurações atuais do BOT |
+|!timeguard | | Alterna o timeguard |
+|!togglebl | | Alterna a blacklist |
+|!togglemotd | | Alterna o motd |
+|!togglevoteskip | | Alterna o voteskip |
+|!unban | @user | Desbane o usuário especificado |
+|!unmute | @user | Retira o mute do usuário especificado |
+|!voteratio | @user | Mostrar as estatísticas de voto para um usuário. |
 
-Resident DJ
+DJ Residente
 -----------
 
 |Comando | Parametro | Descrição |
 |:------:|:---------:|:--------------------------------------:|
-|!link | | give a link to the current song
+|!link | | Mostra o link da mídia atual
 
-
-
-User
+Usuário
 ----
 
 |Comando | Parametro | Descrição |
 |:------:|:---------:|:--------------------------------------:|
-|!8ball | (message) | ask the bot a question, the bot will return random variations of a yes or no answer. |
-|!commands | | gives a link to the commands |
-|!dclookup / !dc | | use dclookup on yourself |
-|!emoji | | a link to a list with emoji's |
-|!eta | | shows how long before you reach the booth |
-|!fb | | links to the room's Facebook page (if set in the settings) |
-|!ghostbuster | @user | checks if user is ghosting |
-|!gif | (message) | returns gif (from giphy) related to the tag provided. Returns a random gif if no tags are provided. |
-|!help | | links to an image to help get people started on plug |
-|!join | | join the roulette if it's up |
-|!leave | | leave the roulette if you joined |
-|!link | | when the user is the DJ, give a link to the current song |
-|!op | | links to the OverPlayed list (if set in the settings) |
-|!purchase | | returns link to purchase more plug notes |
-|!rules | | links to the rules (if set in the settings) |
-|!theme | | links to the room's theme (if set in the settings) |
-|!website | | links to the room's website (if set in the settings) |
-|!youtube | | links to the room's youtube page (if set in the settings) |
+|!8ball | (message) | Faz uma pergunta ao bot, o bot irá retornar variações aleatórias das respostas sim ou não. |
+|!commands | | Mostra um link para os comandos. |
+|!dclookup / !dc | | Move o usuário para a ultima posição da lista. |
+|!emoji | | Link para a lista de emojis. |
+|!eta | | Mostra quanto tempo irá levar para tocar sua música |
+|!ghostbuster | @user | Verifica se o usuário é ghost |
+|!help | | Link para uma imagem para ajudar os usuários à começarem usar o plug. |
+|!join | | Entra para a roleta. |
+|!leave | | Deixar a roleta se estiver participando. |
+|!link | | Quando o usuário for o DJ, dar o link para o som que está tocando |
+|!rules | | Link para as regras da sala |
+|!theme | | Link para o tema da sala |
+|!website | | Link para o website da sala |
+|!youtube | | Link para a pagina do YouTube |
+|!fb | | Link para o grupo do Facebook (se estiver nas configurações) |
 |!download / !dl | | Recebe um link para download da mídia |
+|!allahuakbar | | Existe a possibilidade de ser explodido por um terrorista e sair da fila de DJs |

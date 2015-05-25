@@ -157,7 +157,7 @@
 	var botCreatorIDs = ["3851534", "4105209"];
 
 	var basicBot = {
-		version: "1.3.7",
+		version: "8.0",
 		status: true,
 		name: "YalsBot",
 		loggedInID: null,
@@ -2844,41 +2844,16 @@
 					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
 					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
 					else {
-						var msg = chat.message;
-						var permFrom = basicBot.userUtilities.getPermission(chat.uid);
-						/**
-						 if (msg.indexOf('@') === -1 && msg.indexOf('all') !== -1) {
-							if (permFrom > 2) {
-								basicBot.room.mutedUsers = [];
-								return API.sendChat(subChat(basicBot.chat.unmutedeveryone, {name: chat.un}));
-							}
-							else return API.sendChat(subChat(basicBot.chat.unmuteeveryonerank, {name: chat.un}));
-						}
-						 **/
-						var from = chat.un;
-						var name = msg.substr(cmd.length + 2);
-
-						var user = basicBot.userUtilities.lookupUserName(name);
+						var msg = chat.message,
+							permFrom = basicBot.userUtilities.getPermission(chat.uid),
+							from = chat.un,
+							name = msg.substr(cmd.length + 2),
+							user = basicBot.userUtilities.lookupUserName(name);
 
 						if (typeof user === 'boolean') return API.sendChat(subChat(basicBot.chat.invaliduserspecified, {name: chat.un}));
 
 						var permUser = basicBot.userUtilities.getPermission(user.id);
 						if (permFrom > permUser) {
-							/*
-							 var muted = basicBot.room.mutedUsers;
-							 var wasMuted = false;
-							 var indexMuted = -1;
-							 for (var i = 0; i < muted.length; i++) {
-							 if (muted[i] === user.id) {
-							 indexMuted = i;
-							 wasMuted = true;
-							 }
-
-							 }
-							 if (!wasMuted) return API.sendChat(subChat(basicBot.chat.notmuted, {name: chat.un}));
-							 basicBot.room.mutedUsers.splice(indexMuted);
-							 API.sendChat(subChat(basicBot.chat.unmuted, {name: chat.un, username: name}));
-							 */
 							try {
 								API.moderateUnmuteUser(user.id);
 								API.sendChat(subChat(basicBot.chat.unmuted, {name: chat.un, username: name}));
@@ -2886,8 +2861,9 @@
 							catch (e) {
 								API.sendChat(subChat(basicBot.chat.notmuted, {name: chat.un}));
 							}
+						} else {
+							API.sendChat(subChat(basicBot.chat.unmuterank, {name: chat.un}));
 						}
-						else API.sendChat(subChat(basicBot.chat.unmuterank, {name: chat.un}));
 					}
 				}
 			},
@@ -3031,15 +3007,26 @@
 							id = chat.uid,
 							isDj = API.getDJ().id == id ? true : false;
 							from = chat.un,
+							djlist = API.getWaitList(),
+							inDjList = 0;
+							inList = true;
 							morreu = Math.floor(Math.random() * (2 - 0)) + 0;
 
+						for (var i = 0; i < djlist.length; i++) {
+							if (djlist[i].id == id)
+								inDjList++;
+						}
+						inDjList > 0 ? true : false;
+
 						if (isDj) {
-							return API.sendChat(subChat(basicBot.chat.allahuakbardj, {name: from}));
+							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
 						} else if (morreu == 0) {
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeubom, {name: from}));
 						} else if (morreu == 1) {
 							API.moderateRemoveDJ(id);
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeuruim, {name: from}));
+						} else if (!inDjList) {
+							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
 						}
 					} else {
 						return void(0);

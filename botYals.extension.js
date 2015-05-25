@@ -20,7 +20,7 @@
 
 	// Muda as configurações padrões que são carregadas após a execução do script
 	localStorage.setItem("basicBotsettings", JSON.stringify({
-		botName: "BOT Robocop",
+		botName: "BOT YalsBot",
 		startupCap: 1, // 1-200
 		startupVolume: 10, // 0-100
 		startupEmoji: true, // true ou false
