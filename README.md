@@ -3,9 +3,9 @@ Eu sou um Bot para o PlugDJ
 
 Criado por
 -----
-[Matthew (Yemasthui)](https://github.com/Yemasthui)
-Benzi (Quoona)
-Vinicios (Yals)
+ - [Matthew (Yemasthui)](https://github.com/Yemasthui)
+ - Benzi (Quoona)
+ - Vinicios (Yals)
 
 Intalação
 -----
