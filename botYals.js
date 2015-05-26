@@ -3017,13 +3017,13 @@
 
 						if (isDj) {
 							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
+						} else if (!inDjList) {
+							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
 						} else if (morreu == 0) {
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeubom, {name: from}));
 						} else if (morreu == 1) {
 							API.moderateRemoveDJ(id);
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeuruim, {name: from}));
-						} else if (!inDjList) {
-							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
 						}
 					} else {
 						return void(0);

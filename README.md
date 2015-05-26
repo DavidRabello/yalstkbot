@@ -5,7 +5,8 @@ Criado por
 -----
  - [Matthew (Yemasthui)](https://github.com/Yemasthui)
  - Benzi (Quoona)
- - Vinicios (Yals)
+ - [Vinicios (Yals)](http://yals.tk/)
+ - Italo (Osama)
 
 Intalação
 -----
