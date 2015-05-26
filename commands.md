@@ -87,7 +87,7 @@ Usuário
 
 |Comando | Parametro | Descrição |
 |:------:|:---------:|:--------------------------------------:|
-|!8ball | (message) | Faz uma pergunta ao bot, o bot irá retornar variações aleatórias das respostas sim ou não. |
+|!ask | (message) | Faz uma pergunta ao BOT, e ele irá retornar variações aleatórias das respostas sim ou não. |
 |!commands | | Mostra um link para os comandos. |
 |!dclookup / !dc | | Move o usuário para a ultima posição da lista. |
 |!emoji | | Link para a lista de emojis. |

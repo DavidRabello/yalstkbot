@@ -1470,26 +1470,27 @@
 					}
 				}
 			},
-			ballCommand: {
-				command: 'askosama',
+			askCommand: {
+				command: 'ask',
 				rank: 'user',
 				type: 'startsWith',
 				functionality: function (chat, cmd) {
-					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-					else {
-							var crowd = API.getUsers();
-							var msg = chat.message;
-							var argument = msg.substring(cmd.length + 1);
-							var randomUser = Math.floor(Math.random() * crowd.length);
-							var randomBall = Math.floor(Math.random() * basicBot.settings.ball.length);
-							var randomSentence = Math.floor(Math.random() * 1);
+					if (this.type === 'exact' && chat.message.length !== cmd.length)
+						return void (0);
+					if (basicBot.commands.executable(this.rank, chat)) {
+							var crowd = API.getUsers(),
+								msg = chat.message,
+								argument = msg.substring(cmd.length + 1),
+								randomUser = Math.floor(Math.random() * crowd.length),
+								randomBall = Math.floor(Math.random() * basicBot.settings.ball.length),
+								randomSentence = Math.floor(Math.random() * 1);
 							API.sendChat(subChat(basicBot.chat.ball, {name: chat.un, botname: basicBot.settings.botName, question: argument, response: basicBot.settings.ball[randomBall]}));
-					 }
+					} else {
+						return void (0);
+					}
 				}
 			},
-		  
-				baterCommand: {
+			baterCommand: {
 				command: 'bater',
 				rank: 'user',
 				type: 'startsWith',
@@ -1531,8 +1532,6 @@
 					}
 				}
 			},
-
-
 			banCommand: {
 				command: 'ban',
 				rank: 'bouncer',
@@ -1550,7 +1549,6 @@
 					}
 				}
 			},
-
 			blacklistCommand: {
 				command: ['blacklist', 'bl'],
 				rank: 'bouncer',
@@ -1582,7 +1580,6 @@
 					}
 				}
 			},
-
 			blinfoCommand: {
 				command: 'blinfo',
 				rank: 'bouncer',
