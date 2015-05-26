@@ -104,3 +104,5 @@ Usuário
 |!fb | | Link para o grupo do Facebook (se estiver nas configurações) |
 |!download / !dl | | Recebe um link para download da mídia |
 |!allahuakbar | | Existe a possibilidade de ser explodido por um terrorista e sair da fila de DJs |
+|!thor | | Você tem 10% de chance de ser digno de levantar seu martelo, caso você seja digno irá para a posição 1 da lista, caso contrário irá para último lugar, esse comando só pode ser útilizado a cada 10 minutos por padrão. |
+

@@ -20,6 +20,7 @@ Você pode encontrar todos os comandos [clicando aqui](http://git.io/vTFKE).
 Traduzido por
 -----
  - Yals
+ - Osama
  - RuanKaizo
  - É Vedadi
  - DefT

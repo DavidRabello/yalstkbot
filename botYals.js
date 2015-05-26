@@ -3000,13 +3000,11 @@
 					if (this.type === 'exact' && chat.message.length !== cmd.length)
 						return void(0);
 					if (basicBot.commands.executable(this.rank, chat)) {
-						var media = API.getMedia(),
-							id = chat.uid,
+						var id = chat.uid,
 							isDj = API.getDJ().id == id ? true : false;
 							from = chat.un,
 							djlist = API.getWaitList(),
-							inDjList = 0;
-							inList = true;
+							inDjList = 0,
 							morreu = Math.floor(Math.random() * (2 - 0)) + 0;
 
 						for (var i = 0; i < djlist.length; i++) {
@@ -3016,7 +3014,8 @@
 						inDjList > 0 ? true : false;
 
 						if (isDj) {
-							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
+							API.moderateForceSkip();
+							return API.sendChat(subChat(basicBot.chat.allahuakbardeuruim, {name: from}));
 						} else if (!inDjList) {
 							return API.sendChat(subChat(basicBot.chat.allahuakbarseguro, {name: from}));
 						} else if (morreu == 0) {
@@ -3024,6 +3023,53 @@
 						} else if (morreu == 1) {
 							API.moderateRemoveDJ(id);
 							return API.sendChat(subChat(basicBot.chat.allahuakbardeuruim, {name: from}));
+						}
+					} else {
+						return void(0);
+					}
+				}
+			},
+			thorCommand: {
+				command: 'thor',
+				rank: 'mod',
+				type: 'exact',
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length)
+						return void(0);
+					if (basicBot.commands.executable(this.rank, chat)) {
+						var id = chat.uid,
+							isDj = API.getDJ().id == id ? true : false;
+							from = chat.un,
+							djlist = API.getWaitList(),
+							inDjList = 0,
+							dignoAlgo = Math.floor(Math.random() * 10) + 1,
+							digno = dignoAlgo == 10 ? true : false;
+
+						for (var i = 0; i < djlist.length; i++) {
+							if (djlist[i].id == id)
+								inDjList++;
+						}
+						inDjList > 0 ? true : false;
+
+						thorCd = false;
+
+						if (isDj && digno == true) {
+							return API.sendChat(subChat(basicBot.chat.thordigno, {name: from}));
+						} else if (isDj && digno == false) {
+							API.moderateForceSkip();
+							return API.sendChat(subChat(basicBot.chat.thorndigno, {name: from}));
+						} else if (!inDjList) {
+							return API.sendChat(subChat(basicBot.chat.thornemperto, {name: from}));
+						} else if (thorCd) {
+							return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: minutes}));
+						}
+
+						if (digno) {
+							basicBot.userUtilities.moveUser(id, 1, false);
+							return API.sendChat(subChat(basicBot.chat.thordigno, {name: from}));
+						} else {
+							basicBot.userUtilities.moveUser(id, djlist.length, false);
+							return API.sendChat(subChat(basicBot.chat.thorndigno, {name: from}));
 						}
 					} else {
 						return void(0);
