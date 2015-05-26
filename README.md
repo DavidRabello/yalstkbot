@@ -9,7 +9,8 @@ Criado por
 
 Intalação
 -----
-Execute este script em sua página dentro do plug
+Execute este script em sua página dentro do plug.
+
 `javascript:(function(){$.getScript("https://rawgit.com/yalstk/yalstkbot/master/botYals.extension.js");}());`
 
 ###Comandos###

@@ -10,7 +10,7 @@ Host
 |!afklimit | number | Muda o tempo máximo para um AFK ser kickado por inatívidade |
 |!botname | (botname) | Muda o nome padrão do BOT |
 |!clearchat | | Limpa o chat de todos |
-|!cycle |  | Alternar clico do DJ |
+|!cycle |  | Alternar clico de DJs |
 |!cycletimer | number | Define o tempo de ciclo máximo quando o CycleGard está habilitado |
 |!locktimer | number | Define o tempo máximo que a lista de espera pode ser bloqueada se LockGuard está habilitado |
 |!logout |  | Desloga a conta de quem está hosteando o BOT |

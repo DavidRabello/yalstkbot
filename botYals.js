@@ -157,7 +157,7 @@
 	var botCreatorIDs = ["3851534", "4105209"];
 
 	var basicBot = {
-		version: "8.0",
+		version: "8.0.0",
 		status: true,
 		name: "YalsBot",
 		loggedInID: null,
