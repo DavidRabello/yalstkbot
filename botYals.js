@@ -2982,8 +2982,8 @@
 						}
 
 						if (usedThor) {
-							time = oldTime + (thorInterval * 60 * 1000);
-							timeInMinutes = thorInterval - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
+							time = oldTime + (basicBot.settings.thorInterval * 60 * 1000);
+							timeInMinutes = basicBot.settings.thorInterval - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
 							thorCd = timeInMinutes > 0 ? true : false;
 							if (thorCd == false)
 								basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
@@ -3005,7 +3005,6 @@
 						} else if (!inDjList) {
 							return API.sendChat(subChat(basicBot.chat.thornemperto, {name: from}));
 						} else if (thorCd) {
-							console.log(timeInMinutes);
 							return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: timeInMinutes}));
 						}
 
