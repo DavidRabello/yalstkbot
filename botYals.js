@@ -2949,19 +2949,20 @@
 			},
 			thorCommand: {
 				command: 'thor',
-				rank: 'user',
+				rank: 'mod',
 				type: 'exact',
 				functionality: function (chat, cmd) {
 					if (this.type === 'exact' && chat.message.length !== cmd.length)
 						return void(0);
 					if (basicBot.commands.executable(this.rank, chat)) {
 						var id = chat.uid,
-							isDj = API.getDJ().id == id ? true : false;
+							isDj = API.getDJ().id == id ? true : false,
 							from = chat.un,
 							djlist = API.getWaitList(),
 							inDjList = false,
 							oldTime = 0,
 							usedThor = false,
+							indexArrUsedThor,
 							thorCd = false,
 							timeInMinutes = 0,
 							dignoAlgo = Math.floor(Math.random() * 10) + 1,
@@ -2976,6 +2977,7 @@
 							if (basicBot.room.usersUsedThor[i].id == id) {
 								oldTime = basicBot.room.usersUsedThor[i].time;
 								usedThor = true;
+								indexArrUsedThor = i;
 							}
 						}
 
@@ -2983,6 +2985,8 @@
 							time = oldTime + (thorInterval * 60 * 1000);
 							timeInMinutes = thorInterval - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
 							thorCd = timeInMinutes > 0 ? true : false;
+							if (thorCd == false)
+								basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
 						}
 
 						if (thorCd == false || usedThor == false) {
@@ -3001,6 +3005,7 @@
 						} else if (!inDjList) {
 							return API.sendChat(subChat(basicBot.chat.thornemperto, {name: from}));
 						} else if (thorCd) {
+							console.log(timeInMinutes);
 							return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: timeInMinutes}));
 						}
 
