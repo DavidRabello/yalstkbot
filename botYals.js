@@ -2982,8 +2982,7 @@
 						}
 
 						if (usedThor) {
-							time = oldTime + ((basicBot.settings.thorInterval + 60000) * 60 * 1000);
-							timeInMinutes = basicBot.settings.thorInterval - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
+							timeInMinutes = (basicBot.settings.thorInterval + 60000) - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
 							thorCd = timeInMinutes > 0 ? true : false;
 							if (thorCd == false)
 								basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
