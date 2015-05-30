@@ -176,6 +176,7 @@
 			maximumAfk: 120,
 			afkRemoval: true,
 			maximumDc: 60,
+			thorInterval: 10,
 			bouncerPlus: true,
 			blacklistEnabled: true,
 			lockdownEnabled: false,
@@ -247,6 +248,7 @@
 			afkList: [],
 			mutedUsers: [],
 			bannedUsers: [],
+			usersUsedThor: [],
 			skippable: true,
 			usercommand: true,
 			allcommand: true,
@@ -1320,7 +1322,6 @@
 					}
 				}
 			},
-
 			addCommand: {
 				command: 'add',
 				rank: 'mod',
@@ -1344,7 +1345,6 @@
 					}
 				}
 			},
-
 			afklimitCommand: {
 				command: 'afklimit',
 				rank: 'manager',
@@ -1388,7 +1388,6 @@
 					}
 				}
 			},
-
 			afkresetCommand: {
 				command: 'afkreset',
 				rank: 'bouncer',
@@ -1407,7 +1406,6 @@
 					}
 				}
 			},
-
 			afktimeCommand: {
 				command: 'afktime',
 				rank: 'bouncer',
@@ -1428,7 +1426,6 @@
 					}
 				}
 			},
-
 			autodisableCommand: {
 				command: 'autodisable',
 				rank: 'bouncer',
@@ -1449,7 +1446,6 @@
 					}
 				}
 			},
-
 			autoskipCommand: {
 				command: 'autoskip',
 				rank: 'mod',
@@ -1887,76 +1883,6 @@
 					}
 				}
 			},
-
-			gifCommand: {
-				command: ['gif', 'giphy'],
-				rank: 'user',
-				type: 'startsWith',
-				functionality: function (chat, cmd) {
-					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-					else {
-						var msg = chat.message;
-						if (msg.length !== cmd.length) {
-							function get_id(api_key, fixedtag, func)
-							{
-								$.getJSON(
-									"https://api.giphy.com/v1/gifs/random?", 
-									{ 
-										"format": "json",
-										"api_key": api_key,
-										"rating": rating,
-										"tag": fixedtag
-									},
-									function(response)
-									{
-										func(response.data.id);
-									}
-									)
-							}
-							var api_key = "dc6zaTOxFJmzC"; // public beta key
-							var rating = "pg-13"; // PG 13 gifs
-							var tag = msg.substr(cmd.length + 1);
-							var fixedtag = tag.replace(/ /g,"+");
-							var commatag = tag.replace(/ /g,", ");
-							get_id(api_key, tag, function(id) {
-								if (typeof id !== 'undefined') {
-									API.sendChat(subChat(basicBot.chat.validgiftags, {name: chat.un, id: id, tags: commatag}));
-								} else {
-									API.sendChat(subChat(basicBot.chat.invalidgiftags, {name: chat.un, tags: commatag}));
-								}
-							});
-						}
-						else {
-							function get_random_id(api_key, func)
-							{
-								$.getJSON(
-									"https://api.giphy.com/v1/gifs/random?", 
-									{ 
-										"format": "json",
-										"api_key": api_key,
-										"rating": rating
-									},
-									function(response)
-									{
-										func(response.data.id);
-									}
-									)
-							}
-							var api_key = "dc6zaTOxFJmzC"; // public beta key
-							var rating = "pg-13"; // PG 13 gifs
-							get_random_id(api_key, function(id) {
-								if (typeof id !== 'undefined') {
-									API.sendChat(subChat(basicBot.chat.validgifrandom, {name: chat.un, id: id}));
-								} else {
-									API.sendChat(subChat(basicBot.chat.invalidgifrandom, {name: chat.un}));
-								}
-							});
-						}
-					}
-				}
-			},
-
 			helpCommand: {
 				command: 'help',
 				rank: 'user',
@@ -1970,7 +1896,6 @@
 					}
 				}
 			},
-
 			historyskipCommand: {
 				command: 'historyskip',
 				rank: 'bouncer',
@@ -1990,7 +1915,6 @@
 					}
 				}
 			},
-
 			joinCommand: {
 				command: 'join',
 				rank: 'user',
@@ -2006,7 +1930,6 @@
 					}
 				}
 			},
-
 			jointimeCommand: {
 				command: 'jointime',
 				rank: 'bouncer',
@@ -2027,7 +1950,6 @@
 					}
 				}
 			},
-
 			kickCommand: {
 				command: 'kick',
 				rank: 'bouncer',
@@ -2072,7 +1994,6 @@
 					}
 				}
 			},
-
 			killCommand: {
 				command: 'kill',
 				rank: 'host',
@@ -2090,7 +2011,6 @@
 					}
 				}
 			},
-
 			leaveCommand: {
 				command: 'leave',
 				rank: 'user',
@@ -2136,7 +2056,6 @@
 					}
 				}
 			},
-
 			lockCommand: {
 				command: 'lock',
 				rank: 'mod',
@@ -3009,9 +2928,8 @@
 
 						for (var i = 0; i < djlist.length; i++) {
 							if (djlist[i].id == id)
-								inDjList++;
+								inDjList = true;
 						}
-						inDjList > 0 ? true : false;
 
 						if (isDj) {
 							API.moderateForceSkip();
@@ -3031,7 +2949,7 @@
 			},
 			thorCommand: {
 				command: 'thor',
-				rank: 'mod',
+				rank: 'user',
 				type: 'exact',
 				functionality: function (chat, cmd) {
 					if (this.type === 'exact' && chat.message.length !== cmd.length)
@@ -3041,17 +2959,36 @@
 							isDj = API.getDJ().id == id ? true : false;
 							from = chat.un,
 							djlist = API.getWaitList(),
-							inDjList = 0,
+							inDjList,
+							oldTime,
+							usedThor = false,
+							thorCd,
+							timeInMinutes = 0,
 							dignoAlgo = Math.floor(Math.random() * 10) + 1,
 							digno = dignoAlgo == 10 ? true : false;
 
 						for (var i = 0; i < djlist.length; i++) {
 							if (djlist[i].id == id)
-								inDjList++;
+								inDjList = true;
 						}
-						inDjList > 0 ? true : false;
 
-						thorCd = false;
+						for (var i = 0; i < basicBot.room.usersUsedThor.length; i++) {
+							if (basicBot.room.usersUsedThor[i].id == id) {
+								oldTime = basicBot.room.usersUsedThor[i].time;
+								usedThor = true;
+							}
+						}
+
+						if (usedThor) {
+							time = oldTime + (thorInterval * 60 * 1000);
+							timeInMinutes = thorInterval - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
+							thorCd = timeInMinutes > 0 ? true : false;
+						}
+
+						if (thorCd == false || usedThor == false) {
+							var user = [id: id, time: Date.now()];
+							basicBot.room.usersUsedThor.push(user);
+						}
 
 						if (isDj && digno == true) {
 							return API.sendChat(subChat(basicBot.chat.thordigno, {name: from}));
@@ -3061,7 +2998,7 @@
 						} else if (!inDjList) {
 							return API.sendChat(subChat(basicBot.chat.thornemperto, {name: from}));
 						} else if (thorCd) {
-							return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: minutes}));
+							return API.sendChat(subChat(basicBot.chat.thorcd, {name: from, time: timeInMinutes}));
 						}
 
 						if (digno) {
