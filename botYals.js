@@ -2959,10 +2959,10 @@
 							isDj = API.getDJ().id == id ? true : false;
 							from = chat.un,
 							djlist = API.getWaitList(),
-							inDjList,
-							oldTime,
+							inDjList = false,
+							oldTime = 0,
 							usedThor = false,
-							thorCd,
+							thorCd = false,
 							timeInMinutes = 0,
 							dignoAlgo = Math.floor(Math.random() * 10) + 1,
 							digno = dignoAlgo == 10 ? true : false;
