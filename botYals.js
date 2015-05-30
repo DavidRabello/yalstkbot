@@ -2986,7 +2986,7 @@
 						}
 
 						if (thorCd == false || usedThor == false) {
-							var user = [id: id, time: Date.now()];
+							var user = {id: id, time: Date.now()};
 							basicBot.room.usersUsedThor.push(user);
 						}
 
