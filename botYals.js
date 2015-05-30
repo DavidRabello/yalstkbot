@@ -2949,7 +2949,7 @@
 			},
 			thorCommand: {
 				command: 'thor',
-				rank: 'mod',
+				rank: 'user',
 				type: 'exact',
 				functionality: function (chat, cmd) {
 					if (this.type === 'exact' && chat.message.length !== cmd.length)
@@ -2982,7 +2982,7 @@
 						}
 
 						if (usedThor) {
-							time = oldTime + (basicBot.settings.thorInterval * 60 * 1000);
+							time = oldTime + ((basicBot.settings.thorInterval + 60000) * 60 * 1000);
 							timeInMinutes = basicBot.settings.thorInterval - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
 							thorCd = timeInMinutes > 0 ? true : false;
 							if (thorCd == false)
