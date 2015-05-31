@@ -2912,7 +2912,7 @@
 				}
 			},
 			allahuakbarCommand: {
-				command: 'allahuakbar',
+				command: ['allahuakbar','aIIahuakbar'],
 				rank: 'user',
 				type: 'exact',
 				functionality: function (chat, cmd) {
