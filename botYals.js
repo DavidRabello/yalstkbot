@@ -190,7 +190,7 @@
 			timeGuard: true,
 			maximumSongLength: 10,
 			autodisable: true,
-			commandCooldown: 4,
+			commandCooldown: 1,
 			usercommandsEnabled: true,
 			lockskipPosition: 3,
 			lockskipReasons: [
@@ -1996,7 +1996,7 @@
 			},
 			killCommand: {
 				command: 'kill',
-				rank: 'host',
+				rank: 'cohost',
 				type: 'exact',
 				functionality: function (chat, cmd) {
 					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -2973,24 +2973,26 @@
 								inDjList = true;
 						}
 
-						for (var i = 0; i < basicBot.room.usersUsedThor.length; i++) {
-							if (basicBot.room.usersUsedThor[i].id == id) {
-								oldTime = basicBot.room.usersUsedThor[i].time;
-								usedThor = true;
-								indexArrUsedThor = i;
+						if (inDjList) {
+							for (var i = 0; i < basicBot.room.usersUsedThor.length; i++) {
+								if (basicBot.room.usersUsedThor[i].id == id) {
+									oldTime = basicBot.room.usersUsedThor[i].time;
+									usedThor = true;
+									indexArrUsedThor = i;
+								}
 							}
-						}
 
-						if (usedThor) {
-							timeInMinutes = (basicBot.settings.thorInterval + 1) - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
-							thorCd = timeInMinutes > 0 ? true : false;
-							if (thorCd == false)
-								basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
-						}
+							if (usedThor) {
+								timeInMinutes = (basicBot.settings.thorInterval + 1) - (Math.floor((oldTime - Date.now()) * Math.pow(10, -5)) * -1);
+								thorCd = timeInMinutes > 0 ? true : false;
+								if (thorCd == false)
+									basicBot.room.usersUsedThor.splice(indexArrUsedThor, 1);
+							}
 
-						if (thorCd == false || usedThor == false) {
-							var user = {id: id, time: Date.now()};
-							basicBot.room.usersUsedThor.push(user);
+							if (thorCd == false || usedThor == false) {
+								var user = {id: id, time: Date.now()};
+								basicBot.room.usersUsedThor.push(user);
+							}
 						}
 
 						if (isDj && digno == true) {
