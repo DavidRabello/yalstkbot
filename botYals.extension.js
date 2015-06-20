@@ -59,10 +59,11 @@
 		welcome: true,
 		opLink: null,
 		rulesLink: "http://panelinharadioativa.tk/#regras",
+		teamLink: "http://panelinharadioativa.tk/#equipe",
 		themeLink: null,
 		fbLink: null,
 		youtubeLink: null,
-		website: "http://panelinharadioativa.tk/", // panelinha-radioativa.tk futuro link
+		websiteLink: "http://panelinharadioativa.tk/",
 		intervalMessages: [],
 		messageInterval: 5,
 		songstats: false,

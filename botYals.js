@@ -157,7 +157,7 @@
 	var botCreatorIDs = ["3851534", "4105209"];
 
 	var basicBot = {
-		version: "8.0.0",
+		version: "10.20.6",
 		status: true,
 		name: "YalsBot",
 		loggedInID: null,
@@ -230,10 +230,11 @@
 			welcome: true,
 			opLink: null,
 			rulesLink: null,
+			teamLink: null,
 			themeLink: null,
 			fbLink: null,
 			youtubeLink: null,
-			website: null,
+			websiteLink: null,
 			intervalMessages: [],
 			messageInterval: 5,
 			songstats: true,
@@ -1995,7 +1996,7 @@
 				}
 			},
 			killCommand: {
-				command: 'kill',
+				command: ['kill','desligar'],
 				rank: 'cohost',
 				type: 'exact',
 				functionality: function (chat, cmd) {
@@ -2384,7 +2385,7 @@
 				}
 			},
 			reloadCommand: {
-				command: 'reload',
+				command: ['reload','reiniciar'],
 				rank: 'bouncer',
 				type: 'exact',
 				functionality: function (chat, cmd) {
@@ -2464,8 +2465,34 @@
 					}
 				}
 			},
+			websiteCommand: {
+				command: ['website','site'],
+				rank: 'user',
+				type: 'exact',
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						if (typeof basicBot.settings.websiteLink === "string")
+							return API.sendChat(subChat(basicBot.chat.website, {link: basicBot.settings.websiteLink}));
+					}
+				}
+			},
+			teamCommand: {
+				command: ['team','equipe'],
+				rank: 'user',
+				type: 'exact',
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						if (typeof basicBot.settings.teamLink === "string")
+							return API.sendChat(subChat(basicBot.chat.team, {link: basicBot.settings.teamLink}));
+					}
+				}
+			},
 			rulesCommand: {
-				command: 'rules',
+				command: ['rules','regras'],
 				rank: 'user',
 				type: 'exact',
 				functionality: function (chat, cmd) {

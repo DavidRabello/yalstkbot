@@ -97,11 +97,10 @@ Usuário
 |!join | | Entra para a roleta. |
 |!leave | | Deixar a roleta se estiver participando. |
 |!link | | Quando o usuário for o DJ, dar o link para o som que está tocando |
-|!rules | | Link para as regras da sala |
+|!rules/!regras | | Link para as regras da sala |
+|!team/!equipe | | Link para a equipe da sala |
 |!theme | | Link para o tema da sala |
-|!website | | Link para o website da sala |
-|!youtube | | Link para a pagina do YouTube |
-|!fb | | Link para o grupo do Facebook (se estiver nas configurações) |
+|!website/!site | | Link para o website da sala |
 |!download / !dl | | Recebe um link para download da mídia |
 |!allahuakbar | | Existe a possibilidade de ser explodido por um terrorista e sair da fila de DJs |
 |!thor | | Você tem 10% de chance de ser digno de levantar seu martelo, caso você seja digno irá para a posição 1 da lista, caso contrário irá para último lugar, esse comando só pode ser útilizado a cada 10 minutos por padrão. |

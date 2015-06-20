@@ -8,7 +8,7 @@ Criado por
  - [Vinicios (Yals)](http://yals.tk/)
  - Italo (Osama)
 
-Intalação
+Instalação
 -----
 Execute este script em sua página dentro do plug.
 
