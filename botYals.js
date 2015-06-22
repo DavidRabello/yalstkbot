@@ -203,22 +203,39 @@
 				["unavailable", "The song you played was not available for some users. "]
 			],
 			ball: [
-			"Bem provavel.",
-			"Sim.",
-			"eeh, não sei, pergunta pros universitarios.",
-			"Sem duvidas.",
-			"Minhas fontes dizem que sim.",
-			"hmm, claro.",
-			"Pode ter certeza",
-			"Melhor nem comentar.",
-			"Duvido muito.",
-			"Claro, com certeza.",
-			"certamente.",
-			"Não sei.",
-			"Acho que sim.",
-			"Não",
-			"Minhas fontes dizem não.",
-			"sim, não, talvez, error404: erro não encontrado. ALLAHU AKBAAAAAAR."
+		        "Sinais apontam que sim.",
+		        "Sim.",
+		        "Tente novamente mais tarde.",
+		        "Sem d\u00favidas.",
+		        "Minhas fontes dizem que n\u00e3o.",
+		        "Ao meu ver, sim.",
+		        "Pode contar com isso.",
+		        "Concentre-se e pergunte novamente.",
+		        "Acho que n\u00e3o.",
+		        "Definitivamente.",
+		        "Melhor n\u00e3o te falar...",
+		        "\u00c9 duvidoso.",
+		        "Sim. Definitivamente!",
+		        "\u00c9 certo.",
+		        "N\u00e3o posso prever agora.",
+		        "Provavelmente.",
+		        "Pergunte-me depois.",
+		        "Minha resposta \u00e9 n\u00e3o.",
+		        "Parece bom.",
+		        "N\u00e3o conte com isso.",
+		        "Sim, em seu devido tempo.",
+		        "Minhas fontes dizem que n\u00e3o.",
+		        "Definitivamente n\u00e3o.",
+		        "Voc\u00ea vai ter que esperar...",
+		        "Eu tenho minhas d\u00favidas.",
+		        "Um tanto...",
+		        "Parece bom para mim!",
+		        "Quem sabe?",
+		        "Claro!",
+		        "Provavelmente.",
+		        "Est\u00e1 brincando?",
+		        "N\u00e3o aposte nisso.",
+		        "Esque\u00e7a..."
 			],
 			afkpositionCheck: 15,
 			afkRankCheck: "ambassador",
@@ -1711,7 +1728,49 @@
 					}
 				}
 			},
+			kissCommand: {
+				command: 'kiss',
+				rank: 'user',
+				type: 'startsWith',
+				kisses: [
+				        "deu-lhe um beijo bem gostoso.",
+				        "deu-lhe um xero.",
+				        "deu-lhe uma beijoca",
+				        "deu-lhe um amasso.",
+				        "deu-lhe um beijo e disse \"Eu te amo\"!",
+				        "deu-lhe um abraço e disse \"N\u00e3o me solta\"!"
+				    ],
+				getKiss: function () {
+					var c = Math.floor(Math.random() * this.kisses.length);
+					return this.kisses[c];
+				},
+				functionality: function (chat, cmd) {
+					if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+					if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+					else {
+						var msg = chat.message;
 
+						var space = msg.indexOf(' ');
+						if (space === -1) {
+							API.sendChat(basicBot.chat.kiss);
+							return false;
+						}
+						else {
+							var name = msg.substring(space + 2);
+							var user = basicBot.userUtilities.lookupUserName(name);
+							if (user === false || !user.inRoom) {
+								return API.sendChat(subChat(basicBot.chat.nouserkiss, {name: name}));
+							}
+							else if (user.username === chat.un) {
+								return API.sendChat(subChat(basicBot.chat.selfkiss, {name: name}));
+							}
+							else {
+								return API.sendChat(subChat(basicBot.chat.kissed, {nameto: user.username, namefrom: chat.un, kiss: this.getKiss()}));
+							}
+						}
+					}
+				}
+			},
 			cycleCommand: {
 				command: 'cycle',
 				rank: 'manager',
