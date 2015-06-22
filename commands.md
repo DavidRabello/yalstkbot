@@ -92,6 +92,7 @@ Usuário
 |!dclookup / !dc | | Move o usuário para a ultima posição da lista. |
 |!emoji | | Link para a lista de emojis. |
 |!cookie | | Da um cookie a um amigo <3. |
+|!kiss | | Manda um beijo bem caloro a alguém que você ama. |
 |!eta | | Mostra quanto tempo irá levar para tocar sua música |
 |!ghostbuster | @user | Verifica se o usuário é ghost |
 |!help | | Link para uma imagem para ajudar os usuários à começarem usar o plug. |
