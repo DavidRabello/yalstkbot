@@ -52,7 +52,7 @@
 		afkpositionCheck: 5,
 		afkRankCheck: "ambassador",
 		motdEnabled: true,
-		motdInterval: 15,
+		motdInterval: 10,
 		motd: "Entrem no nosso grupo do FB http://goo.gl/8iFw1s , e curtam a nossa página http://goo.gl/gxOOmp :kiss: :sparkles:",
 		filterChat: false,
 		etaRestriction: false,
@@ -65,7 +65,7 @@
 		youtubeLink: null,
 		websiteLink: null,
 		intervalMessages: [],
-		messageInterval: 5,
+		messageInterval: 3,
 		songstats: false,
 		commandLiteral: "!",
 		blacklists: {
