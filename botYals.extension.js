@@ -20,7 +20,7 @@
 
 	// Muda as configurações padrões que são carregadas após a execução do script
 	localStorage.setItem("basicBotsettings", JSON.stringify({
-		botName: "WorldBot",
+		botName: "ARTPOPBot",
 		startupCap: 1, // 1-200
 		startupVolume: 10, // 0-100
 		startupEmoji: true, // true ou false
@@ -51,9 +51,9 @@
 		],
 		afkpositionCheck: 5,
 		afkRankCheck: "ambassador",
-		motdEnabled: true,
+		motdEnabled: false,
 		motdInterval: 10,
-		motd: "Entrem no nosso grupo do FB http://goo.gl/8iFw1s , e curtam a nossa página http://goo.gl/gxOOmp :kiss: :sparkles:",
+		motd: null,
 		filterChat: true,
 		etaRestriction: false,
 		welcome: true,
